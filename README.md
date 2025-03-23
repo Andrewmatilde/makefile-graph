@@ -30,14 +30,14 @@ The resulting binary will be located in `bin/makefile-graph`.
 Install the CLI application using `go install`.
 
 ``` shell
-go install github.com/dnaeon/makefile-graph/cmd/makefile-graph@latest
+go install github.com/Andrewmatilde/makefile-graph/cmd/makefile-graph@latest
 ```
 
 In order to install the parser package and use it in your own Go code run the
 following command within your Go module.
 
 ``` shell
-go get -v github.com/dnaeon/makefile-graph/pkg/parser
+go get -v github.com/Andrewmatilde/makefile-graph/pkg/parser
 ```
 
 ## Usage

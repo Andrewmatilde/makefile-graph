@@ -47,6 +47,7 @@ var errInvalidFormat = errors.New("Invalid format specified")
 const (
 	formatDot      = "dot"
 	formatTopoSort = "tsort"
+	formatCsv      = "csv"
 )
 
 func main() {
@@ -135,8 +136,16 @@ func main() {
 		if err := graph.WalkTopoOrder(g, collector.WalkFunc); err != nil {
 			printErrAndExit(err)
 		}
+	case formatCsv:
+		collector := g.NewCollector()
+		if err := graph.WalkTopoOrder(g, collector.WalkFunc); err != nil {
+			printErrAndExit(err)
+		}
 		for _, v := range collector.Get() {
-			fmt.Println(v.Value)
+			if v.Parent != nil {
+				fmt.Println(v.Parent.Value, ",", v.Value)
+			}
+			fmt.Println("GOLOBAL", ",", v.Value)
 		}
 	}
 }
